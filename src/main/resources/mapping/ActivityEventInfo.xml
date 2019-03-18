@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="api.com.bao.james.dao.ActivityEventInfoMapper">
+
+    <!-- 插入对应关系数据 -->
+    <insert id="insertData" parameterType="api.com.bao.james.entity.ActivityEventInfoDo">
+        insert into activity_event_info
+        (source, event_level, event_code, event_desc, create_time,update_time)
+        values
+        (#{source}, #{eventLevel}, #{eventCode}, #{eventDesc}, #{createTime},#{updateTime})
+    </insert>
+
+    <resultMap id="infoMap" type="api.com.bao.james.entity.ActivityEventInfoDo">
+        <result column="id" property="id"/>
+        <result column="source" property="source"/>
+        <result column="event_level" property="eventLevel"/>
+        <result column="event_code" property="eventCode"/>
+        <result column="event_desc" property="eventDesc"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+
+    <select id="getRecentlyEvent" resultMap="infoMap">
+      select id,source, event_level, event_code, event_desc, create_time,update_time
+          from activity_event_info
+          order by id desc limit 5;
+
+    </select>
+</mapper>
