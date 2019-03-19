@@ -22,6 +22,7 @@ local.properties
 .texlipse
 .springBeans
 .recommenders/
+.class
 *.class
 .mtj.tmp/
 *.jar

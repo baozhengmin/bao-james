@@ -2,6 +2,7 @@ package api.com.bao.james.aspect;
 
 import api.com.bao.james.Exception.JamesBaoException;
 import api.com.bao.james.constant.ErrorCodeEnum;
+import api.com.bao.james.entity.response.JamesResponse;
 import com.alibaba.fastjson.JSON;
 import java.lang.reflect.Method;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Aspect
 @Component
 @Order(-5)
-public class JamesBaoAccept {
+public class JamesBaoAspect {
 
   private static final String UNKNOWN = "unknown";
 
@@ -35,13 +36,14 @@ public class JamesBaoAccept {
 
   }
   @Around("controllerAspect()")
-  public void accept(ProceedingJoinPoint joinPoint){
+  public Object accept(ProceedingJoinPoint joinPoint){
     log.info("++++++++++++++++获取到拦截+++++++");
     log.info("----------------ip is"+ getIPAddress());
     JamesBao annon = this.getAnnotation(joinPoint);
     log.info("++++++++++++type = "+annon.type());
     log.info("++++++++++++desc = "+annon.desc());
 
+    return JamesResponse.success();
   }
 
   private static final String API_SOURCE_KEY = "jamesBao";
