@@ -1,7 +1,7 @@
 package api.com.bao.james.controller;
 
 import api.com.bao.james.Exception.JamesBaoException;
-import api.com.bao.james.accept.JamesBao;
+import api.com.bao.james.aspect.JamesBao;
 import api.com.bao.james.dao.HelloEsMapper;
 import api.com.bao.james.entity.HelloEs;
 import api.com.bao.james.entity.response.JamesResponse;

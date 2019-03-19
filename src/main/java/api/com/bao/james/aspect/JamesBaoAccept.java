@@ -1,4 +1,4 @@
-package api.com.bao.james.accept;
+package api.com.bao.james.aspect;
 
 import api.com.bao.james.Exception.JamesBaoException;
 import api.com.bao.james.constant.ErrorCodeEnum;
@@ -30,7 +30,7 @@ public class JamesBaoAccept {
 
   private static final String UNKNOWN = "unknown";
 
-  @Pointcut("@annotation(api.com.bao.james.accept.JamesBao)")
+  @Pointcut("@annotation(api.com.bao.james.aspect.JamesBao)")
   public void controllerAspect(){
 
   }

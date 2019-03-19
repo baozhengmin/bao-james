@@ -11,7 +11,10 @@ public enum ErrorCodeEnum {
   // 系统异常
   SUCCESS(200, "请求处理成功"),
   UNAUTHORIZED(401, "校验数据权限失败"),
-  SERVICE_ERROR(500, "系统异常"),;
+  SERVICE_ERROR(500, "系统异常"),
+
+  PARAM_NOT_NULL(501,"参数校验失败")
+  ;
 
 
   private Integer code;

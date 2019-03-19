@@ -1,4 +1,4 @@
-package api.com.bao.james.accept;
+package api.com.bao.james.aspect;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
