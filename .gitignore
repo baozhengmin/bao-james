@@ -38,9 +38,9 @@ tags
 # intellij idea project files
 *.iml
 .idea/
-../.idea/compiler.xml
-../.idea/misc.xml
-../.idea/workspace.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/workspace.xml
 
 # maven target directory
 target/
