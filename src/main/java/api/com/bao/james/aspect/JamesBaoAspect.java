@@ -2,7 +2,6 @@ package api.com.bao.james.aspect;
 
 import api.com.bao.james.Exception.JamesBaoException;
 import api.com.bao.james.constant.ErrorCodeEnum;
-import api.com.bao.james.entity.response.JamesResponse;
 import com.alibaba.fastjson.JSON;
 import java.lang.reflect.Method;
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +35,15 @@ public class JamesBaoAspect {
 
   }
   @Around("controllerAspect()")
-  public Object accept(ProceedingJoinPoint joinPoint){
+  public Object accept(ProceedingJoinPoint joinPoint) throws Throwable {
     log.info("++++++++++++++++获取到拦截+++++++");
     log.info("----------------ip is"+ getIPAddress());
     JamesBao annon = this.getAnnotation(joinPoint);
     log.info("++++++++++++type = "+annon.type());
     log.info("++++++++++++desc = "+annon.desc());
+    Object obj = joinPoint.proceed();
 
-    return JamesResponse.success();
+    return obj;
   }
 
   private static final String API_SOURCE_KEY = "jamesBao";

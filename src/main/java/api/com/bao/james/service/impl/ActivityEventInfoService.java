@@ -3,6 +3,7 @@ package api.com.bao.james.service.impl;
 import api.com.bao.james.dao.ActivityEventInfoMapper;
 import api.com.bao.james.entity.ActivityEventInfoDo;
 import api.com.bao.james.service.IActivityEventInfoService;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,8 @@ public class ActivityEventInfoService implements IActivityEventInfoService {
   @Override
   public void saveActivityEventInfo(ActivityEventInfoDo eventInfoDo) {
 
+    eventInfoDo.setCreateTime(new Date());
+    eventInfoDo.setUpdateTime(new Date());
+    activityEventInfoMapper.insertData(eventInfoDo);
   }
 }

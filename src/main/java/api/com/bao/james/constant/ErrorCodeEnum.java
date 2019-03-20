@@ -13,7 +13,8 @@ public enum ErrorCodeEnum {
   UNAUTHORIZED(401, "校验数据权限失败"),
   SERVICE_ERROR(500, "系统异常"),
 
-  PARAM_NOT_NULL(501,"参数校验失败")
+  PARAM_NOT_NULL(501,"参数校验失败"),
+  PARAM_INVALID(5002, "请求参数无效")
   ;
 
 
